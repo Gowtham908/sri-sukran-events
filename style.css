@@ -4,48 +4,28 @@
     --dark: #121212;
 }
 
+/* Global */
 body {
     font-family: 'Poppins', 'Noto Serif Tamil', sans-serif;
     scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
 }
 
-.text-gold { color: var(--gold); }
-.btn-maroon { background: var(--maroon); color: white; border: none; }
-.btn-maroon:hover { background: #660000; }
-
-/* Hero Section */
-.hero-container {
-    position: relative;
-    height: 85vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    background-color: black;
+.text-gold {
+    color: var(--gold);
 }
 
-.hero-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: 0;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
+/* Buttons */
+.btn-maroon {
+    background: var(--maroon);
+    color: white;
+    border: none;
 }
 
-.video-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.55);
-    z-index: 1;
+.btn-maroon:hover {
+    background: #660000;
 }
-
-.hero-content { z-index: 2; position: relative; }
-.hero-content h1 { font-family: 'Playfair Display', serif; }
 
 .btn-gold {
     background: var(--gold);
@@ -54,9 +34,61 @@ body {
     font-weight: 600;
 }
 
-.btn-gold:hover { background: white; color: var(--maroon); }
+.btn-gold:hover {
+    background: white;
+    color: var(--maroon);
+}
 
-/* Service Cards */
+/* ===============================
+   HERO SECTION (VIDEO FIXED)
+================================ */
+.hero-container {
+    position: relative;
+    height: 85vh;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-video {
+    position: absolute;
+    inset: 0;               /* top:0 right:0 bottom:0 left:0 */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* 🔥 fills screen correctly */
+    z-index: 0;
+}
+
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+.navbar-brand {
+    letter-spacing: 1px;
+}
+
+/* ===============================
+   SERVICES
+================================ */
 .service-card {
     background: white;
     padding: 30px 10px;
@@ -66,13 +98,27 @@ body {
     height: 100%;
 }
 
-.service-card:hover { transform: translateY(-10px); }
-.service-card i { font-size: 2.2rem; color: var(--maroon); margin-bottom: 15px; }
-.service-card p { font-weight: 600; margin: 0; font-size: 0.95rem; }
+.service-card:hover {
+    transform: translateY(-10px);
+}
 
-/* Proper Gallery Grid */
+.service-card i {
+    font-size: 2.2rem;
+    color: var(--maroon);
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    font-weight: 600;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ===============================
+   GALLERY
+================================ */
 .gallery-item {
-    height: 300px; /* Fixed height for all images */
+    height: 300px;
     width: 100%;
     overflow: hidden;
     border-radius: 10px;
@@ -80,16 +126,36 @@ body {
 }
 
 .gallery-item img {
-    height: 100%;
     width: 100%;
-    object-fit: cover; /* This makes images fit without stretching */
+    height: 100%;
+    object-fit: cover;
     transition: transform 0.4s ease;
 }
 
-.gallery-item:hover img { transform: scale(1.1); }
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
 
+/* ===============================
+   FOOTER
+================================ */
+footer {
+    background: var(--dark);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
 @media (max-width: 768px) {
-    .hero-container { height: 60vh; }
-    .hero-content h1 { font-size: 2.5rem; }
-    .gallery-item { height: 250px; }
+    .hero-container {
+        height: 60vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .gallery-item {
+        height: 250px;
+    }
 }
