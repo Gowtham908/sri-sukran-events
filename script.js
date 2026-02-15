@@ -1,48 +1,48 @@
-const translations = {
+const content = {
     en: {
-        home: "Home",
-        gallery: "Gallery",
-        services: "Services",
-        contact: "Contact",
+        navHome: "Home",
+        navServices: "Services",
+        navGallery: "Gallery",
+        navContact: "Contact",
         heroTitle: "Sri Sukran Events",
-        heroDesc: "We bring magic to your celebrations!",
-        btnBook: "Book Now",
+        heroDesc: "Making Your Special Moments Unforgettable",
+        btnBook: "Contact Us Now",
         servicesTitle: "Our Premium Services",
         s1: "Wedding Reception",
         s2: "Birthday Party",
         s3: "Surprise Events",
-        s4: "Car Decoration",
-        galleryTitle: "Event Highlights"
+        s4: "Baby Shower"
     },
     ta: {
-        home: "முகப்பு",
-        gallery: "புகைப்படங்கள்",
-        services: "சேவைகள்",
-        contact: "தொடர்பு",
+        navHome: "முகப்பு",
+        navServices: "சேவைகள்",
+        navGallery: "புகைப்படங்கள்",
+        navContact: "தொடர்பு",
         heroTitle: "ஸ்ரீ சுக்ரன் ஈவென்ட்ஸ்",
         heroDesc: "உங்கள் விசேஷங்களை அழகாக்குகிறோம்!",
-        btnBook: "இப்போதே முன்பதிவு செய்யுங்கள்",
+        btnBook: "இப்போதே அழையுங்கள்",
         servicesTitle: "எங்கள் சேவைகள்",
         s1: "திருமண வரவேற்பு",
         s2: "பிறந்தநாள் விழா",
         s3: "சர்ப்ரைஸ் நிகழ்வுகள்",
-        s4: "கார் அலங்காரம்",
-        galleryTitle: "நிகழ்வின் சிறப்பம்சங்கள்"
+        s4: "வளைகாப்பு விழா"
     }
 };
 
 function switchLang(lang) {
-    document.getElementById('nav-home').innerText = translations[lang].home;
-    document.getElementById('nav-gallery').innerText = translations[lang].gallery;
-    document.getElementById('nav-services').innerText = translations[lang].services;
-    document.getElementById('nav-contact').innerText = translations[lang].contact;
-    document.getElementById('hero-title').innerText = translations[lang].heroTitle;
-    document.getElementById('hero-desc').innerText = translations[lang].heroDesc;
-    document.getElementById('btn-book').innerText = translations[lang].btnBook;
-    document.getElementById('services-title').innerText = translations[lang].servicesTitle;
-    document.getElementById('s1').innerText = translations[lang].s1;
-    document.getElementById('s2').innerText = translations[lang].s2;
-    document.getElementById('s3').innerText = translations[lang].s3;
-    document.getElementById('s4').innerText = translations[lang].s4;
-    document.getElementById('gallery-title').innerText = translations[lang].galleryTitle;
+    document.getElementById('nav-home').innerText = content[lang].navHome;
+    document.getElementById('nav-services').innerText = content[lang].navServices;
+    document.getElementById('nav-gallery').innerText = content[lang].navGallery;
+    document.getElementById('nav-contact').innerText = content[lang].navContact;
+    document.getElementById('hero-title').innerText = content[lang].heroTitle;
+    document.getElementById('hero-desc').innerText = content[lang].heroDesc;
+    document.getElementById('btn-book').innerText = content[lang].btnBook;
+    document.getElementById('services-title').innerText = content[lang].servicesTitle;
+    document.getElementById('s1').innerText = content[lang].s1;
+    document.getElementById('s2').innerText = content[lang].s2;
+    document.getElementById('s3').innerText = content[lang].s3;
+    document.getElementById('s4').innerText = content[lang].s4;
+    
+    // Switch font for better Tamil readability
+    document.body.style.fontFamily = lang === 'ta' ? "'Noto Serif Tamil', serif" : "'Poppins', sans-serif";
 }
