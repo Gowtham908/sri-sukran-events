@@ -1,85 +1,69 @@
 :root {
-    --brand-red: #8B0000;
+    --maroon: #8B0000;
     --gold: #D4AF37;
-    --dark: #1a1a1a;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
+    font-family: 'Hind', 'Poppins', sans-serif; /* Hind font is great for Tamil */
 }
 
-h1, h2, h3 {
-    font-family: 'Playfair Display', serif;
+.text-gold { color: var(--gold); }
+
+.navbar-brand { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+
+/* Video Background */
+.hero-wrap {
+    position: relative;
+    background-color: black;
+    height: 75vh;
+    min-height: 400px;
+    width: 100%;
+    overflow: hidden;
 }
 
-/* Navbar */
-.navbar {
-    background: var(--dark);
-    border-bottom: 2px solid var(--gold);
-}
-.navbar-brand span {
-    color: var(--gold);
-}
-
-/* Hero Section */
-.hero-section {
-    height: 90vh;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80'); /* Event image */
-    background-size: cover;
-    background-position: center;
+.hero-wrap video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translateX(-50%) translateY(-50%);
 }
 
-.text-gold {
-    color: var(--gold);
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%; width: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 1;
 }
 
+.container { position: relative; z-index: 2; }
+
+/* Buttons & Cards */
 .btn-gold {
     background-color: var(--gold);
     color: #000;
-    font-weight: bold;
-    border-radius: 50px;
-    padding: 12px 30px;
-}
-
-.btn-gold:hover {
-    background-color: #fff;
-    color: var(--brand-red);
-}
-
-/* Service Cards */
-.section-title {
-    font-size: 2.5rem;
+    border: none;
     font-weight: bold;
 }
 
-.title-underline {
-    height: 4px;
-    width: 80px;
-    background: var(--gold);
-    margin: 10px auto;
-}
+.btn-gold:hover { background-color: #fff; color: var(--maroon); }
 
-.service-card {
-    border: 1px solid #eee;
-    transition: all 0.3s ease;
-    border-radius: 10px;
+.service-box {
     background: #fff;
-    height: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: 0.3s;
 }
 
-.service-card i {
-    font-size: 2.5rem;
-    color: var(--brand-red);
-}
+.service-box:hover { transform: translateY(-5px); border: 1px solid var(--gold); }
 
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-color: var(--gold);
-}
+.service-box i { font-size: 2rem; color: var(--maroon); margin-bottom: 10px; }
 
-.service-card h5 {
-    font-weight: 600;
-}
+.gallery-img:hover { cursor: pointer; filter: brightness(80%); }
