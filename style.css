@@ -16,11 +16,8 @@ body {
 /* Hero Section */
 .hero-container {
     position: relative;
-    height: 85vh;
+    height: 100vh; /* Changing this to 100vh shows more of the video */
     width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
     background-color: black;
 }
