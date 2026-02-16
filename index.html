@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sri Sukran Events | ஸ்ரீ சுக்ரன் ஈவென்ட்ஸ்</title>
-    <!-- Bootstrap 5 -->
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Fonts: Elegant Serif for English, Clear Sans for Tamil -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;700&family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -14,14 +14,16 @@
 </head>
 <body>
 
-    <!-- Language Toggle -->
-    <div class="container text-end py-2">
-        <button class="btn btn-sm btn-outline-secondary" onclick="switchLang('en')">English</button>
-        <button class="btn btn-sm btn-maroon ms-2" onclick="switchLang('ta')">தமிழ்</button>
+    <!-- Top Bar / Language -->
+    <div class="bg-light border-bottom">
+        <div class="container d-flex justify-content-end py-2">
+            <button class="btn btn-sm btn-outline-dark me-2" onclick="switchLang('en')">English</button>
+            <button class="btn btn-sm btn-maroon" onclick="switchLang('ta')">தமிழ்</button>
+        </div>
     </div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold" href="#">SRI SUKRAN <span class="text-gold">EVENTS</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -41,7 +43,6 @@
     <!-- Hero Section with Background Video -->
     <header id="home" class="hero-container">
         <div class="video-overlay"></div>
-        <!-- FIXED: Relative path for GitHub compatibility -->
         <video autoplay muted loop playsinline class="hero-video">
             <source src="sri-sukran-events.mp4" type="video/mp4">
         </video>
@@ -54,52 +55,106 @@
         </div>
     </header>
 
-    <!-- Services -->
+    <!-- Services Grid -->
     <section id="services" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-5 fw-bold section-title" id="services-title">Our Premium Services</h2>
+        <div class="container text-center">
+            <h2 class="mb-5 fw-bold section-title" id="services-title">Our Premium Services</h2>
             <div class="row g-4">
-                <div class="col-md-3 col-6">
-                    <div class="service-card shadow-sm text-center">
-                        <i class="fas fa-church"></i>
+                <div class="col-lg-3 col-6">
+                    <div class="service-card shadow-sm">
+                        <i class="fas fa-gem"></i>
                         <p id="s1">Wedding Reception</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="service-card shadow-sm text-center">
+                <div class="col-lg-3 col-6">
+                    <div class="service-card shadow-sm">
                         <i class="fas fa-cake-candles"></i>
                         <p id="s2">Birthday Party</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="service-card shadow-sm text-center">
+                <div class="col-lg-3 col-6">
+                    <div class="service-card shadow-sm">
                         <i class="fas fa-gift"></i>
                         <p id="s3">Surprise Events</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-6">
-                    <div class="service-card shadow-sm text-center">
+                <div class="col-lg-3 col-6">
+                    <div class="service-card shadow-sm">
                         <i class="fas fa-baby-carriage"></i>
                         <p id="s4">Baby Shower</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="service-card shadow-sm">
+                        <i class="fas fa-car"></i>
+                        <p id="s5">Car Decoration</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="service-card shadow-sm">
+                        <i class="fas fa-plate-wheat"></i>
+                        <p id="s6">Plate Decoration</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="service-card shadow-sm">
+                        <i class="fas fa-icons"></i>
+                        <p id="s7">Balloon Decoration</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="service-card shadow-sm">
+                        <i class="fas fa-music"></i>
+                        <p id="s8">DJ Services</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Corrected Photo Gallery -->
+    <section id="gallery" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold section-title" id="gallery-title">Event Highlights</h2>
+            <div class="row g-4">
+                <!-- Image Box 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="photo1.jpg" alt="Gallery" class="img-fluid">
+                    </div>
+                </div>
+                <!-- Image Box 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="photo2.jpg" alt="Gallery" class="img-fluid">
+                    </div>
+                </div>
+                <!-- Image Box 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="gallery-item">
+                        <img src="photo3.jpg" alt="Gallery" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
     <footer id="contact" class="bg-dark text-white pt-5 pb-3">
         <div class="container text-center">
-            <h4 class="text-gold mb-3">V. YADHAVAN</h4>
-            <p class="fs-5 mb-1"><i class="fas fa-phone-alt me-2 text-gold"></i> 77082 98661</p>
-            <div class="mt-4 mb-4">
+            <h3 class="text-gold mb-2">V. YADHAVAN</h3>
+            <p class="fs-5 mb-1"><i class="fas fa-phone-alt text-gold me-2"></i> +91 77082 98661</p>
+            <p class="small opacity-75">Serving across Tamil Nadu</p>
+            <div class="my-4">
                 <a href="https://instagram.com/Sri_Sukran_Eventz" class="text-white fs-2 mx-3"><i class="fab fa-instagram"></i></a>
             </div>
             <hr class="border-secondary">
-            <p class="small text-secondary">© 2024 Sri Sukran Events | Tamil Nadu, India</p>
+            <p class="small text-secondary">© 2024 Sri Sukran Events. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
