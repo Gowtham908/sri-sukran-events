@@ -1,28 +1,34 @@
 :root {
-    --maroon: #8B0000;
+    --maroon: #800000;
     --gold: #D4AF37;
-    --dark: #121212;
+    --black: #000000;
 }
 
 body {
     font-family: 'Poppins', 'Noto Serif Tamil', sans-serif;
     scroll-behavior: smooth;
+    margin: 0;
 }
 
 .text-gold { color: var(--gold); }
-.btn-maroon { background: var(--maroon); color: white; border: none; }
-.btn-maroon:hover { background: #660000; }
+.btn-gold { background-color: var(--gold); color: black; border: none; font-weight: bold; transition: 0.3s; }
+.btn-gold:hover { background-color: white; color: var(--maroon); transform: scale(1.05); }
 
-/* Hero Section */
+/* Hero Container */
 .hero-container {
     position: relative;
-    height: 100vh; /* Changing this to 100vh shows more of the video */
+    height: 90vh;
     width: 100%;
     overflow: hidden;
-    background-color: black;
+    background-color: var(--black);
+    /* FALLBACK IMAGE: Shows while video is loading */
+    background: url('photo1.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Updated Hero Video for Vertical Videos */
 .hero-video {
     position: absolute;
     top: 50%;
@@ -33,77 +39,57 @@ body {
     height: auto;
     z-index: 0;
     transform: translate(-50%, -50%);
-    
-    /* MAGIC PART: object-fit covers the area, 
-       object-position ensures the face (top part) is visible */
     object-fit: cover;
-    object-position: center 20%; 
-}
-
-/* Mobile Adjustment: Since the video is vertical, it will look perfect on mobile */
-@media (max-width: 768px) {
-    .hero-container {
-        height: 70vh; /* Adjust height for mobile */
-    }
-    .hero-video {
-        object-position: center center; /* Keep it centered on phones */
-    }
+    /* Adjusts to see the face (top 20%) */
+    object-position: center 20%;
 }
 
 .video-overlay {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.5); /* Overlay to make text readable */
     z-index: 1;
 }
 
 .hero-content { z-index: 2; position: relative; }
-.hero-content h1 { font-family: 'Playfair Display', serif; }
-
-.btn-gold {
-    background: var(--gold);
-    color: black;
-    border: none;
-    font-weight: 600;
-}
-
-.btn-gold:hover { background: white; color: var(--maroon); }
+.hero-content h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.7); }
 
 /* Service Cards */
 .service-card {
-    background: white;
-    padding: 30px 10px;
+    background: #fff;
+    padding: 25px 15px;
     border-radius: 12px;
-    transition: 0.3s;
-    border-bottom: 4px solid var(--maroon);
+    text-align: center;
     height: 100%;
+    transition: 0.3s;
+    border-bottom: 3px solid var(--maroon);
 }
 
-.service-card:hover { transform: translateY(-10px); }
-.service-card i { font-size: 2.2rem; color: var(--maroon); margin-bottom: 15px; }
-.service-card p { font-weight: 600; margin: 0; font-size: 0.95rem; }
+.service-card:hover { transform: translateY(-8px); border-color: var(--gold); }
+.service-card i { font-size: 2rem; color: var(--maroon); margin-bottom: 15px; }
+.service-card p { font-weight: 600; font-size: 0.9rem; margin: 0; }
 
-/* Proper Gallery Grid */
+/* Gallery Fix */
 .gallery-item {
-    height: 300px; /* Fixed height for all images */
+    height: 280px;
     width: 100%;
     overflow: hidden;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .gallery-item img {
     height: 100%;
     width: 100%;
-    object-fit: cover; /* This makes images fit without stretching */
-    transition: transform 0.4s ease;
+    object-fit: cover;
+    transition: 0.5s;
 }
 
-.gallery-item:hover img { transform: scale(1.1); }
+.gallery-item img:hover { transform: scale(1.1); }
 
+/* Responsive Mobile Fix */
 @media (max-width: 768px) {
-    .hero-container { height: 60vh; }
-    .hero-content h1 { font-size: 2.5rem; }
-    .gallery-item { height: 250px; }
+    .hero-container { height: 75vh; }
+    .hero-content h1 { font-size: 2.2rem; }
+    .gallery-item { height: 220px; }
 }
