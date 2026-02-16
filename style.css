@@ -6,14 +6,13 @@
 
 body {
     font-family: 'Poppins', 'Noto Serif Tamil', sans-serif;
-    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .text-gold { color: var(--gold); }
-.btn-maroon { background: var(--maroon); color: white; border: none; }
-.btn-maroon:hover { background: #660000; }
+.btn-maroon { background: var(--maroon); color: white; }
 
-/* Hero Section */
+/* Hero Video Styling */
 .hero-container {
     position: relative;
     height: 85vh;
@@ -22,7 +21,6 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-color: black;
 }
 
 .hero-video {
@@ -31,7 +29,9 @@ body {
     left: 50%;
     min-width: 100%;
     min-height: 100%;
-    z-index: 0;
+    width: auto;
+    height: auto;
+    z-index: -1;
     transform: translate(-50%, -50%);
     object-fit: cover;
 }
@@ -40,56 +40,54 @@ body {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.5); /* Darkens the video so text is readable */
+    z-index: 0;
+}
+
+.hero-content {
     z-index: 1;
+    padding: 20px;
 }
 
-.hero-content { z-index: 2; position: relative; }
-.hero-content h1 { font-family: 'Playfair Display', serif; }
-
-.btn-gold {
-    background: var(--gold);
-    color: black;
-    border: none;
-    font-weight: 600;
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
-
-.btn-gold:hover { background: white; color: var(--maroon); }
 
 /* Service Cards */
 .service-card {
     background: white;
-    padding: 30px 10px;
-    border-radius: 12px;
+    padding: 30px 15px;
+    border-radius: 15px;
     transition: 0.3s;
     border-bottom: 4px solid var(--maroon);
     height: 100%;
 }
 
-.service-card:hover { transform: translateY(-10px); }
-.service-card i { font-size: 2.2rem; color: var(--maroon); margin-bottom: 15px; }
-.service-card p { font-weight: 600; margin: 0; font-size: 0.95rem; }
-
-/* Proper Gallery Grid */
-.gallery-item {
-    height: 300px; /* Fixed height for all images */
-    width: 100%;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.service-card:hover {
+    transform: translateY(-10px);
+    border-bottom-color: var(--gold);
 }
 
-.gallery-item img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover; /* This makes images fit without stretching */
-    transition: transform 0.4s ease;
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--maroon);
+    margin-bottom: 15px;
 }
 
-.gallery-item:hover img { transform: scale(1.1); }
+.service-card p {
+    font-weight: 600;
+    margin: 0;
+}
 
-@media (max-width: 768px) {
-    .hero-container { height: 60vh; }
-    .hero-content h1 { font-size: 2.5rem; }
-    .gallery-item { height: 250px; }
+.btn-gold {
+    background-color: var(--gold);
+    color: black;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-gold:hover {
+    background-color: white;
+    color: var(--maroon);
 }

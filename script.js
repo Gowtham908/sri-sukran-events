@@ -11,12 +11,7 @@ const content = {
         s1: "Wedding Reception",
         s2: "Birthday Party",
         s3: "Surprise Events",
-        s4: "Baby Shower",
-        s5: "Car Decoration",
-        s6: "Plate Decoration",
-        s7: "Balloon Decoration",
-        s8: "DJ Services",
-        galleryTitle: "Event Highlights"
+        s4: "Baby Shower"
     },
     ta: {
         navHome: "முகப்பு",
@@ -30,12 +25,7 @@ const content = {
         s1: "திருமண வரவேற்பு",
         s2: "பிறந்தநாள் விழா",
         s3: "சர்ப்ரைஸ் நிகழ்வுகள்",
-        s4: "வளைகாப்பு விழா",
-        s5: "கார் அலங்காரம்",
-        s6: "தட்டு அலங்காரம்",
-        s7: "பலூன் அலங்காரம்",
-        s8: "டிஜே இசை",
-        galleryTitle: "நிகழ்வின் சிறப்பம்சங்கள்"
+        s4: "வளைகாப்பு விழா"
     }
 };
 
@@ -48,18 +38,11 @@ function switchLang(lang) {
     document.getElementById('hero-desc').innerText = content[lang].heroDesc;
     document.getElementById('btn-book').innerText = content[lang].btnBook;
     document.getElementById('services-title').innerText = content[lang].servicesTitle;
+    document.getElementById('s1').innerText = content[lang].s1;
+    document.getElementById('s2').innerText = content[lang].s2;
+    document.getElementById('s3').innerText = content[lang].s3;
+    document.getElementById('s4').innerText = content[lang].s4;
     
-    // Update Services
-    for (let i = 1; i <= 8; i++) {
-        document.getElementById('s' + i).innerText = content[lang]['s' + i];
-    }
-    
-    document.getElementById('gallery-title').innerText = content[lang].galleryTitle;
-
-    // Change body font based on language
-    if (lang === 'ta') {
-        document.body.style.fontFamily = "'Noto Serif Tamil', serif";
-    } else {
-        document.body.style.fontFamily = "'Poppins', sans-serif";
-    }
+    // Switch font for better Tamil readability
+    document.body.style.fontFamily = lang === 'ta' ? "'Noto Serif Tamil', serif" : "'Poppins', sans-serif";
 }
