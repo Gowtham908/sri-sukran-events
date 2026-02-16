@@ -25,15 +25,32 @@ body {
     background-color: black;
 }
 
+/* Updated Hero Video for Vertical Videos */
 .hero-video {
     position: absolute;
     top: 50%;
     left: 50%;
     min-width: 100%;
     min-height: 100%;
+    width: auto;
+    height: auto;
     z-index: 0;
     transform: translate(-50%, -50%);
+    
+    /* MAGIC PART: object-fit covers the area, 
+       object-position ensures the face (top part) is visible */
     object-fit: cover;
+    object-position: center 20%; 
+}
+
+/* Mobile Adjustment: Since the video is vertical, it will look perfect on mobile */
+@media (max-width: 768px) {
+    .hero-container {
+        height: 70vh; /* Adjust height for mobile */
+    }
+    .hero-video {
+        object-position: center center; /* Keep it centered on phones */
+    }
 }
 
 .video-overlay {
