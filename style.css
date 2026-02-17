@@ -71,3 +71,26 @@ body {
     .hero-content h1 { font-size: 2.2rem; }
     .gallery-item { height: 220px; }
 }
+@media (max-width: 768px) {
+    .hero-container {
+        /* On mobile, we make the container shorter so the video doesn't crop the sides too much */
+        height: 60vh; 
+    }
+
+    .hero-video {
+        /* On mobile, we switch to 'contain' if the video is getting cut too much, 
+           OR we keep 'cover' but adjust the position */
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        object-position: center center;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 1rem !important;
+    }
+}
