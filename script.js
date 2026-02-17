@@ -34,12 +34,11 @@ function switchLang(lang) {
     document.body.style.fontFamily = lang === 'ta' ? "'Noto Serif Tamil', serif" : "'Poppins', sans-serif";
 }
 
-// GALLERY FILTER LOGIC
+// SERVICE FILTER LOGIC
 function filterGallery(category) {
     const items = document.querySelectorAll('.gallery-item-wrapper');
     const buttons = document.querySelectorAll('.filter-btn');
 
-    // Update active button
     buttons.forEach(btn => {
         if(btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText === 'All')) {
             btn.classList.add('active');
@@ -48,7 +47,6 @@ function filterGallery(category) {
         }
     });
 
-    // Show/Hide Items
     items.forEach(item => {
         if (category === 'all' || item.classList.contains(category)) {
             item.classList.remove('hide');
@@ -57,12 +55,10 @@ function filterGallery(category) {
         }
     });
 
-    // Smooth scroll to gallery
-    const gallerySection = document.getElementById('gallery');
-    gallerySection.scrollIntoView({ behavior: 'smooth' });
+    // Auto-scroll to gallery
+    document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Mobile Auto-play Fix
 window.addEventListener('load', () => {
     const video = document.getElementById('mainVideo');
     if (video) { video.play().catch(() => {}); }
