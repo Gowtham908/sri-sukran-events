@@ -2,7 +2,7 @@ const content = {
     en: {
         navHome: "Home", navServices: "Services", navGallery: "Gallery", navContact: "Contact",
         heroTitle: "Sri Sukran Events", heroDesc: "Making Your Special Moments Unforgettable",
-        btnBook: "Book Your Event", servicesTitle: "Our Premium Services",
+        btnBook: "Book Now", servicesTitle: "Our Premium Services",
         s1: "Wedding Reception", s2: "Birthday Party", s3: "Surprise Events", s4: "Baby Shower",
         s5: "Car Decoration", s6: "Plate Decoration", s7: "Balloon Decoration", s8: "DJ Services",
         galleryTitle: "Event Highlights"
@@ -26,17 +26,44 @@ function switchLang(lang) {
     document.getElementById('hero-desc').innerText = content[lang].heroDesc;
     document.getElementById('btn-book').innerText = content[lang].btnBook;
     document.getElementById('services-title').innerText = content[lang].servicesTitle;
-    for (let i = 1; i <= 8; i++) { document.getElementById('s' + i).innerText = content[lang]['s' + i]; }
+    for (let i = 1; i <= 8; i++) { 
+        let el = document.getElementById('s' + i);
+        if(el) el.innerText = content[lang]['s' + i]; 
+    }
     document.getElementById('gallery-title').innerText = content[lang].galleryTitle;
     document.body.style.fontFamily = lang === 'ta' ? "'Noto Serif Tamil', serif" : "'Poppins', sans-serif";
 }
 
-// Mobile Playback Fix: Ensures video tries to play after page load
+// GALLERY FILTER LOGIC
+function filterGallery(category) {
+    const items = document.querySelectorAll('.gallery-item-wrapper');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    // Update active button
+    buttons.forEach(btn => {
+        if(btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText === 'All')) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
+    // Show/Hide Items
+    items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+            item.classList.remove('hide');
+        } else {
+            item.classList.add('hide');
+        }
+    });
+
+    // Smooth scroll to gallery
+    const gallerySection = document.getElementById('gallery');
+    gallerySection.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Mobile Auto-play Fix
 window.addEventListener('load', () => {
     const video = document.getElementById('mainVideo');
-    if (video) {
-        video.play().catch(error => {
-            console.log("Auto-play was prevented. Waiting for user interaction.");
-        });
-    }
+    if (video) { video.play().catch(() => {}); }
 });
