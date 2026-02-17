@@ -19,10 +19,10 @@ body {
 .section-title { color: var(--maroon); position: relative; padding-bottom: 10px; }
 .section-title::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 3px; background: var(--gold); }
 
-/* --- HERO (MOBILE VIDEO FIX) --- */
+/* --- HERO SECTION --- */
 .hero-container {
     position: relative;
-    height: 85vh;
+    height: 85vh; /* Desktop Height */
     width: 100%;
     overflow: hidden;
     background-color: var(--black);
@@ -35,14 +35,35 @@ body {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    min-width: 100%; min-height: 100%;
-    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Default for Desktop */
     z-index: 0;
-    object-position: center 20%; /* Keep face visible */
+    object-position: center center;
 }
 
-.video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); z-index: 1; }
+.video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.40); z-index: 1; }
 .hero-content { z-index: 2; position: relative; }
+
+/* --- MOBILE SPECIFIC FIX (STOP ZOOM) --- */
+@media (max-width: 768px) {
+    .hero-container {
+        height: 80vh; /* Increased height to match vertical phone shape */
+    }
+
+    .hero-video {
+        /* This stops the "Zoomed" look by ensuring the video 
+           fits the height of the phone perfectly */
+        height: 100% !important;
+        width: 100% !important;
+        object-fit: cover; 
+        object-position: center top; /* Keeps the baby's face in view */
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+}
 
 /* --- SERVICE CARDS --- */
 .service-card {
@@ -54,7 +75,7 @@ body {
 .service-card i { font-size: 2.2rem; color: var(--maroon); margin-bottom: 15px; }
 .service-card p { font-weight: 600; font-size: 0.95rem; margin: 0; }
 
-/* --- GALLERY GRID --- */
+/* --- GALLERY --- */
 .gallery-item { height: 300px; width: 100%; overflow: hidden; border-radius: 10px; }
 .gallery-item img { height: 100%; width: 100%; object-fit: cover; transition: 0.5s; }
 .gallery-item img:hover { transform: scale(1.1); }
@@ -64,33 +85,3 @@ body {
 
 .filter-btn { margin: 5px; border-radius: 20px; font-weight: 500; }
 .filter-btn.active { background: var(--maroon); color: white; border-color: var(--maroon); }
-
-/* --- MOBILE RESPONSIVE --- */
-@media (max-width: 768px) {
-    .hero-container { height: 60vh; }
-    .hero-content h1 { font-size: 2.2rem; }
-    .gallery-item { height: 220px; }
-}
-@media (max-width: 768px) {
-    .hero-container {
-        /* On mobile, we make the container shorter so the video doesn't crop the sides too much */
-        height: 60vh; 
-    }
-
-    .hero-video {
-        /* On mobile, we switch to 'contain' if the video is getting cut too much, 
-           OR we keep 'cover' but adjust the position */
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        object-position: center center;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem !important;
-    }
-    
-    .hero-content p {
-        font-size: 1rem !important;
-    }
-}
